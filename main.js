@@ -18,8 +18,9 @@ client.on('message', message => {
     message.reply('pong');
   } else if (msg[0] == "!count") {//!count command
     let count = parseInt(msg[1]);
+    message.delete(count*1000);
     for(let i = 0; i < count; i++) {
-      message.reply((i+1));
+      message.reply((i+1)).then(msg => msg.delete(100));
     }
   } else if(msg[0] == "!ruletarusa") {//!ruletarusa command
     message.reply(
